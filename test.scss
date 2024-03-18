@@ -1,0 +1,36 @@
+html,
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+h1 {
+  font-size: 48px;
+  color: white !important;
+}
+
+.header {
+  height: 250px;
+  background-color: #232323;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-container {
+  max-width: 1360px;
+  margin: auto;
+  background: #efefef;
+  &--grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(250px, 160px));
+    column-gap: 16px;
+    grid-gap: 16px;
+    grid-auto-rows: auto;
+    > div {
+      height: 100%;
+      width: 100%;
+      background-color: black;
+    }
+  }
+}
