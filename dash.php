@@ -8,7 +8,17 @@ if(!is_user_logged_in()){
 	status_header( 404 );
 	get_template_part( 404 ); exit();
 }
+	
 
+function formatted_content()
+{
+  global $post;
+
+  return apply_filters(
+    'the_content',
+    get_post_field('post_content', $post->id)
+  );
+} ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
