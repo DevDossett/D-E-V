@@ -183,18 +183,31 @@ function formatted_content()
 </body>
 <script>
     let elem = document.getElementById('q');
+	// Listening for the enter event
     elem.addEventListener('keypress', (event)=>{
         if(event.which !== 13) return;
         event.preventDefault();
+		// getting val
         let val = elem.value;
+		// setting the default query
         let siteToQuery = 'https://duckduckgo.com/?hps=1&ia=web&q=' + val;
+		// if the val has subsearch key word
         if(val.length > 10 && val.substring(0, 9) === 'subsearch'){
+			// break up val
             let search = val.split(" ");
+			// get subreddit
             let sub = search[1];
+			// get search query
             let query = search.slice(2).join(" ");
+			// set the new query
             siteToQuery = 'https://www.google.com/search?q=site:reddit.com/r/' + sub + ' "' + query + '"';
-        } 
+        }
+		// redirect to query
         window.location.href = siteToQuery;
     });
+	// Focus element on page load
+	document.addEventListener('DOMContentLoaded', function() {
+    	elem.focus();
+	});
 </script>
 </html>
